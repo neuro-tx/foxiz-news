@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SettingsProvider } from "@/context/SettingsProvider";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Nova News | Breaking News, Headlines & Top Stories from Around the World",
@@ -32,7 +33,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="min-h-dvh w-full relative bg-white-50 font-inter">
+        <Navbar />
         <SettingsProvider>{children}</SettingsProvider>
       </body>
     </html>
