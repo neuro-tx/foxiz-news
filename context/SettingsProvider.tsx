@@ -12,6 +12,7 @@ interface SettingsContextProps {
   toggleTheme: () => void;
   setLayout: (layout: Layout) => void;
   setColor: (color: Color) => void;
+  setThemeState: (theme: Theme) => void;
 }
 
 const SettingsContext = createContext<SettingsContextProps | undefined>(
@@ -96,6 +97,20 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  const setThemeState = (theme: Theme) => {
+    try {
+      setTheme(theme);
+      localStorage.setItem("theme", theme);
+
+      document.documentElement.classList.remove("dark");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (error) {
+      console.error("Error toggling theme:", error);
+    }
+  };
+
   return (
     <SettingsContext.Provider
       value={{
@@ -105,6 +120,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
         toggleTheme,
         setLayout,
         setColor,
+        setThemeState,
       }}
     >
       {children}
