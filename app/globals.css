@@ -45,4 +45,11 @@
   .place-center {
     @apply grid place-items-center
   }
+
+  .layout-btn {
+    @apply p-3 border border-white-100 dark:border-dark-300 rounded-md w-full cursor-pointer relative
+  }
+  .color-btn {
+    @apply size-7 p-1 cursor-pointer rounded-full ring-1 dark:ring-white-100 ring-slate-200
+  }
 }

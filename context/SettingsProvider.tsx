@@ -3,10 +3,10 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 
 type Theme = "light" | "dark";
 type Layout = "grid" | "row";
-type Color = string;
+type Color = string ;
 
 interface SettingsContextProps {
-  theme: string;
+  theme : string;
   color: string;
   layout: string;
   toggleTheme: () => void;
@@ -91,7 +91,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
 
     try {
       setColorState(color);
-      localStorage.setItem("color", color);
+      localStorage.setItem("color", color ?? "");
     } catch (error) {
       console.error("Error setting color:", error);
     }

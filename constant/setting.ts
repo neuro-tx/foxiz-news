@@ -37,7 +37,15 @@ export const colors = [
     cName: "Blush",
   },
   {
-    color: "#ea221f",
+    color: "#f04b1f",
     cName: "Red",
+  },
+  {
+    color: "#e12afb",
+    cName: "Fuchsia",
+  },
+  {
+    color: "#ed1b88",
+    cName: "Pink",
   },
 ] as const; 
