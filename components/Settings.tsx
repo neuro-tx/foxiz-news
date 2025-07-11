@@ -13,7 +13,7 @@ const SettingsLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <div className="fixed right-4 bottom-4">
+      <div className="fixed right-4 bottom-4 z-[999]">
         <button
           className="size-10 rounded-full drop-shadow-xl bg-blue-70 text-white place-center transition-1 cursor-pointer active:opacity-75"
           onClick={() => setIsOpen(true)}
@@ -27,7 +27,7 @@ const SettingsLayout = ({ children }: { children: React.ReactNode }) => {
 
       <div
         className={`fixed min-h-dvh right-0 top-0 ${
-          isOpen ? "w-full z-30 backdrop-blur-xs" : "w-0"
+          isOpen ? "w-full backdrop-blur-xs z-[999]" : "w-0 opacity-0"
         }`}
       >
         <aside

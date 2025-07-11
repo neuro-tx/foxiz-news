@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { useSettings } from "@/context/SettingsProvider";
-import { useClickout } from "@/hooks/useClickout";
 
 interface NavLink {
   link: string;
@@ -21,10 +20,9 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full relative backdrop-blur-lg border-b border-b-white-100 dark:border-b-dark-300 bg-white dark:bg-dark-100">
-      <div className="mx-auto container px-6 h-15 flex-between">
+    <header className="w-full relative backdrop-blur-lg border-b border-b-white-100 dark:border-b-dark-300 bg-white dark:bg-dark-100 z-30">
+      <div className="main-container h-15 flex-between">
         <Link href={"/"} className="flex-center gap-0">
-          {/* <img src="./icons/logo.svg" alt="logo" width={35} /> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -75,10 +73,10 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`absolute scale-0 opacity-70 left-0 w-full p-5 sm:hidden bg-white dark:bg-dark-100 transition-2 ${
+          className={`absolute scale-0 opacity-70 left-0 w-full p-5 sm:hidden bg-white dark:bg-dark-100 transition-2 z-30 ${
             isopen
-              ? "top-15 opacity-100 scale-100 z-10 pointer-events-auto shadow-400"
-              : "top-14 -z-10 pointer-events-none"
+              ? "top-15 opacity-100 scale-100 z-30 pointer-events-auto shadow-400"
+              : "top-14 pointer-events-none"
           }`}
         >
           <ul className="grid gap-1.5">
