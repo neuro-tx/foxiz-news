@@ -23,25 +23,11 @@ const Navbar = () => {
     <header className="w-full relative backdrop-blur-lg border-b border-b-white-100 dark:border-b-dark-300 bg-white dark:bg-dark-100 z-30">
       <div className="main-container h-15 flex-between">
         <Link href={"/"} className="flex-center gap-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 48 48"
-            fill="none"
-          >
-            <path
-              d="M6 12C6 8.68629 8.68629 6 12 6H36C39.3137 6 42 8.68629 42 12V36C42 39.3137 39.3137 42 36 42H12C8.68629 42 6 39.3137 6 36V12Z"
-              fill={`${theme === "light" ? "#0a0a0a" : "#10100c"}`}
-            />
-            <path
-              d="M14.7954 35.045V12.9541H19.2245L29.9905 31.6762V12.9541H33.2045V35.045H28.4669L18.0093 16.8626V35.045H14.7954Z"
-              fill={`${theme === "light" ? "#f3f3f5" : "#5724ff"}`}
-            />
-          </svg>
-          <p className="font-bold text-lg text-black dark:text-white">
-            <span className="text-blue-70">News</span>
-          </p>
+          <img 
+            src={theme === "dark" ? "/icons/logo-light.svg" : "/icons/logo.svg"}
+            alt="logo"
+            width={100}
+          />
         </Link>
 
         <nav className="hidden sm:inline-flex">
