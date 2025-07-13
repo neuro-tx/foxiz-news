@@ -9,7 +9,7 @@ export function mediaStack(data: any): NewsDataProps {
     description: data.description,
     source: data.source,
     image: data.image,
-    url: data.url,
+    url: getValidImage(data.url),
     cateogory: [data.category],
     publishedAt: data.published_at,
     author: data.author,
@@ -26,8 +26,11 @@ export function genralNewsApi(data: any): NewsDataProps {
     description: data.description || "",
     source: data.source?.name,
     image: data.urlToImage || data.image,
-    url: data.url || "",
+    url: getValidImage(data.url) || "",
     publishedAt: data.publishedAt || "",
-    author: data.author ,
+    author: data.author,
   };
 }
+
+export const getValidImage = (url?: string) =>
+  url?.startsWith("http") ? url : "/imgs/fallback-image.jpg";

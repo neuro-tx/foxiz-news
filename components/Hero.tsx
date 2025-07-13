@@ -5,31 +5,13 @@ import Link from "next/link";
 import React from "react";
 import Section from "./Section";
 import { NewsDataProps } from "@/util/dataTypes";
+import { getData } from "@/util/fetchData";
 
 const Hero = async () => {
-  const URL = process.env.NEXT_PUBLIC_BASE_URL;
-  async function getTrending() {
-    try {
-      const res = await fetch(`${URL}/api/news`, {
-        next: { revalidate: 3600 },
-      });
+  const res = await getData("api/news");
+  const trendings = await res.trending;
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-
-      const data = await res.json();
-      return data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  }
-
-  const trends = await getTrending();
-  const trendings = trends.trending;
-
-  if (!trendings) {
+  if (!trendings || trendings.length === 0) {
     return (
       <div className="text-center my-10 text-slate-500 dark:text-white-100">
         <h2 className="text-2xl font-semibold">Trending News</h2>
@@ -39,9 +21,6 @@ const Hero = async () => {
       </div>
     );
   }
-
-  const getValidImage = (url?: string) =>
-    url?.startsWith("http") ? url : "/fallback-image.jpg";
 
   return (
     <div className="w-full my-6 h-full">
@@ -57,14 +36,14 @@ const Hero = async () => {
             target="_blank"
             className="w-full md:pr-3 md:border-r border-r-white-100 dark:border-r-dark-300 h-full"
           >
-            <div className="w-full relative max-h-[320px] md:max-h-[450px] h-full">
+            <div className="w-full relative max-h-[370px] md:max-h-[450px] h-full">
               <div className="glass-effict flex-center gap-1.5 absolute top-2 left-2 z-10 px-2 py-1 text-xs bg-black/60 text-white rounded">
                 <Clock3 size={14} />
                 <span>{formatDate(trendings[0].publishedAt)}</span>
               </div>
 
               <Image
-                src={getValidImage(trendings[0].image)}
+                src={trendings[0].image}
                 alt="Main Article Image"
                 width={200}
                 height={200}
@@ -89,7 +68,7 @@ const Hero = async () => {
                   className="relative aspect-square max-w-28 md:max-w-32 w-full h-28 md:h-32"
                 >
                   <Image
-                    src={getValidImage(item.image)}
+                    src={item.image}
                     alt="Thumbnail"
                     width={280}
                     height={200}

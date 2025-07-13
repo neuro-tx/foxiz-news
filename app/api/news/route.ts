@@ -4,30 +4,37 @@ import { NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
   const API_KEY = process.env.NEXT_PUBLIC_GNEWS_KEY;
   const categoriesList = [
-    "sports",
     "business",
-    "technology",
     "entertainment",
-    "science",
+    "general",
     "health",
+    "science",
+    "sports",
+    "technology",
   ];
 
   const trendUrl = `https://gnews.io/api/v4/top-headlines?q=trending&lang=en&apikey=${API_KEY}`;
 
+  const topStories = `https://newsapi.org/v2/top-headlines?country=us&pageSize=15&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`;
+
+  const categoryFetches = categoriesList.map((cat) =>
+    fetch(
+      `https://gnews.io/api/v4/top-headlines?category=${cat}&lang=en&country=us&max=10&apikey=${API_KEY}`
+    ).then((res) => res.json())
+  );
+
   const promises = [
     fetch(trendUrl).then((res) => res.json()),
-    ...categoriesList.map((cat) =>
-      fetch(
-        `https://gnews.io/api/v4/top-headlines?category=${cat}&lang=en&country=us&max=10&apikey=${API_KEY}`
-      ).then((res) => res.json())
-    ),
+    fetch(topStories).then((res) => res.json()),
+    ...categoryFetches,
   ];
 
   try {
-    const [trending, ...categories] = await Promise.all(promises);
+    const [trending, topStories, ...categories] = await Promise.all(promises);
 
     const result = {
       trending: (trending.articles || []).map(genralNewsApi),
+      topStories: (topStories.articles || []).map(genralNewsApi),
       categories: categoriesList.map((category, i) => ({
         category,
         articles: (categories[i]?.articles || []).map(genralNewsApi),

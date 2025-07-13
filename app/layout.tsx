@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     "Nova News | Breaking News, Headlines & Top Stories from Around the World",
   description:
     "Stay updated with Nova News — your trusted source for the latest breaking news, trending headlines, and in-depth stories from politics, technology, entertainment, sports, and more. Real-time reporting, every day.",
+  icons: {
+    icon: [
+      { url: "/icons/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -39,9 +45,7 @@ export default function RootLayout({
       <body className="min-h-dvh w-full overflow-x-hidden bg-white-50 font-inter dark:bg-dark transition-1 text-dark-200 dark:text-white">
         <SettingsProvider>
           <Navbar />
-          <SettingsLayout>
-            {children}
-          </SettingsLayout>
+          <SettingsLayout>{children}</SettingsLayout>
         </SettingsProvider>
       </body>
     </html>

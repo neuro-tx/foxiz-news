@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "@/components/Hero";
 import Link from "next/link";
 import { LayoutTemplate } from "lucide-react";
+import TopStories from "@/components/TopStories";
 
 const categoriesList = [
   "sports",
@@ -33,6 +34,7 @@ const page = async () => {
       </div>
 
       <Hero />
+      <TopStories />
     </div>
   );
 };
