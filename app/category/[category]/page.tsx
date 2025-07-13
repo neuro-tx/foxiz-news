@@ -1,15 +1,13 @@
-import React from 'react'
-interface Props {
+import React from "react";
+
+interface categoryProps {
   params: {
     category: string;
   };
 }
 
-export default async function Category({ params }: Props) {
+export default async function CategoryPage({ params }: categoryProps) {
   const { category } = await params;
-  return (
-    <div>
-      {category} : Category
-    </div>
-  )
+
+  return <div>CategoryList of {category}</div>;
 }

@@ -36,7 +36,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-dvh w-full relative bg-white-50 font-inter dark:bg-dark transition-1 text-dark-200 dark:text-white">
+      <body className="min-h-dvh w-full overflow-x-hidden bg-white-50 font-inter dark:bg-dark transition-1 text-dark-200 dark:text-white">
         <SettingsProvider>
           <Navbar />
           <SettingsLayout>
