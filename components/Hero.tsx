@@ -8,8 +8,8 @@ import { NewsDataProps } from "@/util/dataTypes";
 import { getData } from "@/util/fetchData";
 
 const Hero = async () => {
-  const res = await getData("api/news");
-  const trendings = await res.trending;
+  const res = await getData("api/trends");
+  const trendings = await res;
 
   if (!trendings || trendings.length === 0) {
     return (

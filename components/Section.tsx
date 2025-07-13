@@ -24,7 +24,7 @@ const Section = ({
             {title}
           </span>
         </h3>
-        <p className="text-sm mt-1 mx-1 text-slate-400 dark:text-slate-500">
+        <p className="text-base font-PTsans mt-1 mx-1 text-slate-400 dark:text-slate-500">
           {caption}
         </p>
       </div>

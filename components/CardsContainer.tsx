@@ -9,7 +9,7 @@ const CardsContainer = ({ children }: { children: React.ReactNode }) => {
       className={`${
         layout === "grid"
           ? "grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-          : "grid md:grid-cols-2"
+          : "grid lg:grid-cols-2"
       } gap-4`}
     >
       {children}

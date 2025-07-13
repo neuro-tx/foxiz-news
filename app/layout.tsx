@@ -3,6 +3,7 @@ import "./globals.css";
 import { SettingsProvider } from "@/context/SettingsProvider";
 import Navbar from "@/components/Navbar";
 import SettingsLayout from "@/components/Settings";
+import CaregoriesNav from "@/components/CaregoriesNav";
 
 export const metadata: Metadata = {
   title:
@@ -45,6 +46,7 @@ export default function RootLayout({
       <body className="min-h-dvh w-full overflow-x-hidden bg-white-50 font-inter dark:bg-dark transition-1 text-dark-200 dark:text-white">
         <SettingsProvider>
           <Navbar />
+          <CaregoriesNav />
           <SettingsLayout>{children}</SettingsLayout>
         </SettingsProvider>
       </body>

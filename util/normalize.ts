@@ -25,8 +25,8 @@ export function genralNewsApi(data: any): NewsDataProps {
     title: data.title || "",
     description: data.description || "",
     source: data.source?.name,
-    image: data.urlToImage || data.image,
-    url: getValidImage(data.url) || "",
+    image: getValidImage(data.urlToImage || data.image),
+    url: data.url || "",
     publishedAt: data.publishedAt || "",
     author: data.author,
   };
