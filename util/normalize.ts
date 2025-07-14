@@ -1,18 +1,18 @@
 import { NewsDataProps } from "./dataTypes";
 
-export function mediaStack(data: any): NewsDataProps {
+export function theNewsApiNormalize(data: any): NewsDataProps {
   if (!data || typeof data !== "object") {
     throw new Error("Invalid data passed to mediaStack");
   }
   return {
-    title: data.title,
-    description: data.description,
-    source: data.source,
-    image: data.image,
-    url: getValidImage(data.url),
+    title: data.title || "",
+    description: data.description || "",
+    source: data.source_name || "",
+    image: getValidImage(data.image_url) || "",
+    url: data.link,
     cateogory: [data.category],
-    publishedAt: data.published_at,
-    author: data.author,
+    publishedAt: data.pubDate || "",
+    author: data.creator || "",
   };
 }
 

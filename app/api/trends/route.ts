@@ -3,7 +3,7 @@ import { genralNewsApi } from "@/util/normalize";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-  const API_KEY = process.env.GNEWS_KEY;
+  const API_KEY = process.env.NEXT_PUBLIC_GNEWS_KEY;
 
   if (!API_KEY) {
     console.error("GNEWS API KEY is missing!");
