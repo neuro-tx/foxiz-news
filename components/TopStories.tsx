@@ -23,12 +23,19 @@ const TopStories = async () => {
   return (
     <section className="w-full my-6 h-full border-t border-white-100 dark:border-dark-300">
       <div className="my-6 w-full text-center border-b border-white-100 dark:border-b-dark-300 pb-4">
-        <h2 className="capitalize text-2xl lg:text-3xl font-semibold text-dark-300 dark:text-white-100">
-          🔥 top stories
-        </h2>
-        <p className="mt-1 font-PTsans text-slate-500">
-          Stay updated with the most important headlines from around the world.
-        </p>
+        <div className="text-center">
+          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-dark-200 md:text-5xl lg:text-6xl font-roboto dark:text-white-100">
+            Stay Ahead{" "}
+            <span className="bg-gradient-to-r from-pink-600 to-indigo-600 bg-clip-text text-transparent">
+              — with the Stories
+            </span>{" "}
+            Everyone's Talking About
+          </h1>
+          <p className="text-lg font-PTsans font-normal text-gray-500 dark:text-gray-400">
+            Catch the pulse of the world — real-time trending news, handpicked
+            to keep you informed and in the know.
+          </p>
+        </div>
       </div>
 
       <div className="grid lg:grid-cols-6">
