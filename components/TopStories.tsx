@@ -7,7 +7,7 @@ import { getData } from "@/util/fetchData";
 
 const TopStories = async () => {
   const res = await getData("api/news");
-  const stroies = await res.topStories;
+  const stroies = await res;
 
   if (!stroies || stroies.length === 0) {
     return (
