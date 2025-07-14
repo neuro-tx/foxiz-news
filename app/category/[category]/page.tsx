@@ -5,6 +5,7 @@ import CardsContainer from "@/components/CardsContainer";
 import { NewsDataProps } from "@/util/dataTypes";
 import NewsCard from "@/components/NewsCard";
 import { categoriesList } from "@/util";
+import { notFound } from "next/navigation";
 
 interface categoryProps {
   params: {
@@ -20,8 +21,25 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata(
+  { params }: categoryProps
+): Promise<Metadata> {
+  const { category } = params;
+
+  return {
+    title: `${category} News | Foxiz`,
+    description: `Catch the latest and trending ${category} stories on Foxiz.`,
+    openGraph: {
+      title: `${category} News | Foxiz`,
+      description: `Stay updated with breaking ${category} headlines, analysis, and insights.`,
+    },
+  };
+}
+
 export default async function CategoryPage({ params }: categoryProps) {
   const { category } = await params;
+  if (!categoriesList.includes(category)) return notFound();
+
   const data = getData(`api/news/${category}`);
   const articles = await data;
 
