@@ -1,7 +1,7 @@
 import { theNewsApiNormalize } from "@/util/normalize";
 import { NextRequest } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET(_req: NextRequest) {
   const API_KEY = process.env.NEXT_PUBLIC_THENEWSAPI_KEY;
   const topics = ["entertainment", "technology", "sports"];
 

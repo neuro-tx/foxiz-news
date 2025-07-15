@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import { useSettings } from "@/context/SettingsProvider";
 import { usePathname } from "next/navigation";
-import { cn } from "@/util";
 
 const Navbar = () => {
   const { theme, color } = useSettings();

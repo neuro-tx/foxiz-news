@@ -1,14 +1,8 @@
 import { genralNewsApi } from "@/util/normalize";
 import { NextRequest } from "next/server";
 
-interface CategoryProps {
-  params: {
-    category: string;
-  };
-}
-
-export async function GET(_req: NextRequest, { params }: CategoryProps) {
-  const category = encodeURIComponent(params.category || "");
+export async function GET(_req: NextRequest, context: any) {
+  const category = encodeURIComponent(context.params?.category || "");
   const API_KEY = process.env.NEXT_PUBLIC_NEWSAPI_KEY;
 
   if (!API_KEY) {

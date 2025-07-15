@@ -1,7 +1,7 @@
 import { genralNewsApi } from "@/util/normalize";
 import { NextRequest } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET(_req: NextRequest) {
   const NEWS_API_KEY = process.env.NEWSAPI_KEY;
   const url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=100&apiKey=${NEWS_API_KEY}`;
 
