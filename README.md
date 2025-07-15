@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🦊 Foxiz News
 
-## Getting Started
+**Foxiz News** is a modern, category-based news platform built with Next.js, delivering real-time and static content using ISR (Incremental Static Regeneration) and dynamic API routes. Stay updated with trending topics across Entertainment, Technology, Sports, Science, and more — all wrapped in a fast, SEO-optimized experience.
 
-First, run the development server:
+![Foxiz News Screenshot](https://github.com/neuro-tx/foxiz-news/blob/main/public/imgs/main.png?raw=true)
+
+---
+
+## 🎨 Customization
+
+Foxiz News is built with flexibility in mind. You can easily tailor the app to match your brand or personal style:
+
+- **Color Themes** — Tweak Tailwind configuration or use CSS variables to update color palettes.
+- **Layout Options** — Switch between grid, list, or card views with minimal code changes.
+- **Component Swapping** — Replace or extend components like `NewsCard`, `Navbar`, or `Footer` to match your UX needs.
+- **Dark Mode** — Fully supported out-of-the-box via Tailwind’s `dark:` class system.
+
+![Foxiz News Screenshot](https://github.com/neuro-tx/foxiz-news/blob/main/public/imgs/layout.png?raw=true)
+
+---
+
+## 🚀 Features
+
+- ⚡ **Dynamic Category Routing** — Navigate through `/news/[category]` pages powered by dynamic segments.
+- 🧠 **ISR (Incremental Static Regeneration)** — Ensures fresh content with blazing speed.
+- 🌐 **SEO-Optimized Metadata** — Dynamic titles, descriptions, and OG images per page.
+- 💡 **Custom News API Integration** — Fetches data per category using serverless functions.
+- 🧩 **Reusable UI Components** — Clean card design, dark mode friendly, and fully responsive.
+- 🎯 **Loading UI Support** — Seamless UX with route-level loading indicators.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js 14 (App Router)**
+- **Tailwind CSS**
+- **TypeScript**
+- **Dynamic API Routes (Route Handlers)**
+- **SEO Metadata API**
+- **NewsAPI / NewsData.io Integration**
+
+---
+
+### 📌 Supported Categories
+
+Foxiz News supports multiple categories of news content to keep you updated on your interests:
+
+- 📰 **General**
+- 🔬 **Science**
+- 💻 **Technology**
+- 🏅 **Sports**
+- 🎭 **Entertainment**
+- 💼 **Business**
+- 🏥 **Health**
+
+You can access category-specific pages by navigating to:
+- `api/news/science`
+- `api/news/technology`
+- `api/news/entertainment`
+
+---
+
+## 📦 Getting Started
+**1. Clone the repository**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/neuro-tx/foxiz-news.git
+cd foxiz-news
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**2. Install dependencies**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**3. Configure environment variables**
 
-## Learn More
+```bash
+NEXT_PUBLIC_NEWSAPI_KEY
+NEXT_PUBLIC_GNEWS_KEY
+NEXT_PUBLIC_THENEWSAPI_KEY
 
-To learn more about Next.js, take a look at the following resources:
+NEXT_PUBLIC_BASE_URL
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**4. Run the app**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
